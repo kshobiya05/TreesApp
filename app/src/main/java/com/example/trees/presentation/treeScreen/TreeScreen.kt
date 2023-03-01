@@ -12,13 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.domain.domain.models.Tree
+import com.example.domain.models.Tree
 import com.ramcosta.composedestinations.annotation.Destination
 
 @Destination
 @Composable
 fun TreeScreen(
-    tree: Tree
+    tree: com.example.domain.models.Tree
 ) {     tree.let {
                 LazyColumn(
                     modifier = Modifier.fillMaxSize()

@@ -3,8 +3,9 @@ package com.example.trees.presentation.treesList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.common.common.*
-import com.example.domain.domain.models.Tree
-import com.example.domain.domain.usecase.getTreeUseCase
+import com.example.domain.models.Tree
+import com.example.domain.usecase.getTreeUseCase
+import com.example.common.common.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -12,9 +13,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TreesListViewModel @Inject constructor(
-    private val getTreesUseCase: getTreeUseCase
+    private val getTreesUseCase: com.example.domain.usecase.getTreeUseCase
 ) : ViewModel() {
-    var dataState: MutableStateFlow<DataState<List<Tree>>> = MutableStateFlow(
+    var dataState: MutableStateFlow<DataState<List<com.example.domain.models.Tree>>> = MutableStateFlow(
         DataStateIdle(emptyList())
     )
 
