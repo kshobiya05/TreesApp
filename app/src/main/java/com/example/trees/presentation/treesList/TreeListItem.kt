@@ -1,4 +1,4 @@
-package com.example.trees.presentation.treesList.components.treesListScreen
+package com.example.trees.presentation.treesList
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.domain.models.Tree
+import com.example.api.models.Tree
 import com.example.trees.presentation.destinations.TreeScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -21,7 +21,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Destination
 @Composable
 fun TreeListItem(
-    tree: com.example.domain.models.Tree,
+    tree: Tree,
     navigator: DestinationsNavigator
 ) {
         Column(
