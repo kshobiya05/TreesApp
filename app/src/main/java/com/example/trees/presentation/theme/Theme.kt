@@ -17,7 +17,7 @@ private val LightColorPalette = lightColors(
     primary = LightGreen,
     primaryVariant = Corail,
     background = TreeBackground,
-    surface = LightGreen2
+    surface = LightGreen
 )
 
 @Composable

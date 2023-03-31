@@ -1,4 +1,4 @@
-package com.example.common.common
+package com.example.trees.util
 
 interface DataState<T> {
     val data: T?
