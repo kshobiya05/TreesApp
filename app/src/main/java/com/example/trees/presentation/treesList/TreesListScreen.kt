@@ -8,6 +8,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,9 +24,15 @@ fun TreesListScreen(
     viewModel: TreesListViewModel = hiltViewModel(),
     navigator: DestinationsNavigator
 ) {
-        val state by viewModel.dataState.collectAsState()
-        Column (modifier = Modifier.background(MaterialTheme.colors.background)) {
+    val state by viewModel.dataState.collectAsState()
+    val isLoading = remember{ viewModel.isLoading }
+    val isError = remember{ viewModel.isError }
+    val endOfgroup by remember{ viewModel.endOfgroup }
+
+    Column (modifier = Modifier.background(MaterialTheme.colors.background)) {
+
             Spacer(modifier = Modifier.size(10.dp))
+
                 Text(
                     text = "LIST OF TREES",
                     style = MaterialTheme.typography.h6,
@@ -36,17 +43,45 @@ fun TreesListScreen(
                         .align(Alignment.CenterHorizontally),
                     textAlign = TextAlign.Center
                 )
+
             Spacer(modifier = Modifier.size(10.dp))
+
                 LazyColumn(
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(MaterialTheme.colors.background, RoundedCornerShape(8.dp))
                 ) {
+                       // viewModel.fetchTrees()
+
                     items(state.data?.size ?: 0) {
+                        if (it >= (state.data?.size?.minus(1) ?: 0) && endOfgroup) {
+                            viewModel.fetchTrees()
+                        }
                         Box(modifier = Modifier.padding(12.dp)) {
                             TreeListItem(tree = state.data.orEmpty()[it], navigator = navigator)
                         }
                     }
+                 }
+            }
+              if(isError)
+              {
+                    Text(
+                        text= "an error occurred",
+                        color = MaterialTheme.colors.error,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 20.dp)
+                    )
                 }
-        }
+                if (isLoading)
+                {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                }
 }
+

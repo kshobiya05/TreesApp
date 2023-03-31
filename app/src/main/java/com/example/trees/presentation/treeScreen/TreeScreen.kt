@@ -28,26 +28,25 @@ fun TreeScreen(
                             Spacer(modifier = Modifier.size(200.dp))
                             Column(
                                 modifier = Modifier.fillMaxWidth()
-                                    .background(Color.White, RoundedCornerShape(30.dp)),
+                                    .background(MaterialTheme.colors.surface, RoundedCornerShape(30.dp)),
                                 horizontalAlignment = Alignment.CenterHorizontally
                             ) {
                                 Spacer(modifier = Modifier.size(10.dp))
                                 Text(
-                                    text = "Espèce : ${it.espece}",
+                                    text = "ESPECE : ${it.espece}",
                                     style = MaterialTheme.typography.caption,
-                                    color = Color.Black,
+                                    color = Color.White,
                                     modifier = Modifier
-                                        .background(MaterialTheme.colors.surface, RoundedCornerShape(60.dp))
+                                        .background(MaterialTheme.colors.background)
                                         .padding(30.dp),
                                     textAlign = TextAlign.Center
                                 )
                                 Spacer(modifier = Modifier.size(15.dp))
                                 Text(
-                                    text = "Reference : ${it.id}",
+                                    text = "Reférence : ${it.id}",
                                     style = MaterialTheme.typography.button,
-                                    color = MaterialTheme.colors.primaryVariant,
+                                    color = Color.White,
                                     modifier = Modifier
-                                        .background(Color.White, RoundedCornerShape(10.dp))
                                         .padding(5.dp),
                                     textAlign = TextAlign.Center
                                 )
@@ -55,9 +54,8 @@ fun TreeScreen(
                                 Text(
                                         text = "Hauteur : ${it.hauteurenm} m",
                                         style = MaterialTheme.typography.button,
-                                        color = MaterialTheme.colors.primaryVariant,
+                                        color = Color.White,
                                         modifier = Modifier
-                                            .background(Color.White, RoundedCornerShape(10.dp))
                                             .padding(5.dp),
                                         textAlign = TextAlign.Center
                                     )
@@ -65,9 +63,8 @@ fun TreeScreen(
                                 Text(
                                         text = "Circonference : ${it.circonferenceencm} cm",
                                         style = MaterialTheme.typography.button,
-                                        color = MaterialTheme.colors.primaryVariant,
+                                        color = Color.White,
                                         modifier = Modifier
-                                            .background(Color.White, RoundedCornerShape(10.dp))
                                             .padding(5.dp),
                                         textAlign = TextAlign.Center
                                     )
@@ -75,9 +72,8 @@ fun TreeScreen(
                                 Text(
                                     text = "Adresse : ${it.adresse}",
                                     style = MaterialTheme.typography.button,
-                                    color = MaterialTheme.colors.primaryVariant,
+                                    color = Color.White,
                                     modifier = Modifier
-                                        .background(Color.White, RoundedCornerShape(10.dp))
                                         .padding(5.dp),
                                     textAlign = TextAlign.Center
                                 )
