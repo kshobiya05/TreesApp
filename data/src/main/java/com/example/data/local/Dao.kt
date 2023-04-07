@@ -1,9 +1,6 @@
 package com.example.data.local
 
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.api.models.TreeEntity
 
 @androidx.room.Dao
@@ -23,4 +20,5 @@ interface Dao {
 
     @Update
     suspend fun updateTree(tree: TreeEntity)
+
 }

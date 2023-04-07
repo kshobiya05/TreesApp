@@ -3,8 +3,6 @@ package com.example.api.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.api.models.Tree
-import java.sql.Timestamp
-import java.util.*
 
 @Entity
 data class TreeEntity (
@@ -16,3 +14,4 @@ data class TreeEntity (
     val hauteurenm : Int,
     val timestamp : Long
 )
+

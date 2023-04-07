@@ -2,7 +2,6 @@ package com.example.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.api.models.DateConverter
 import com.example.api.models.TreeEntity
 
 @Database(
@@ -10,7 +9,6 @@ import com.example.api.models.TreeEntity
     version = 2
 )
 
-//@TypeConveter(DateConverter::class)
 abstract class TreeDatabase : RoomDatabase() {
 
     abstract val dao : Dao

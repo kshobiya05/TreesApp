@@ -14,20 +14,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.api.injection.Dependencies
+import com.example.api.injection.DependencyInjection
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Destination(start = true)
 @Composable
 fun TreesListScreen(
-    viewModel: TreesListViewModel = hiltViewModel(),
-    navigator: DestinationsNavigator
+    navigator: DestinationsNavigator,
 ) {
+    val viewModel = DependencyInjection.get<TreesListViewModel>(Dependencies.viewModel.toString())
     val state by viewModel.dataState.collectAsState()
-    val isLoading = remember{ viewModel.isLoading }
-    val isError = remember{ viewModel.isError }
-    val endOfgroup by remember{ viewModel.endOfgroup }
+    val isLoading = remember { viewModel.isLoading }
+    val isError = remember { viewModel.isError }
+    val endOfgroup by remember { viewModel.endOfgroup }
 
     Column (modifier = Modifier.background(MaterialTheme.colors.background)) {
 

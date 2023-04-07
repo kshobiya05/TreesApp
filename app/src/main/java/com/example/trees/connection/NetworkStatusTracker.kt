@@ -44,6 +44,7 @@ class NetworkStatusTracker(context: Context) {
         })
 
     }
+
 }
 @FlowPreview
     inline fun <FetchStrategy> Flow<NetworkStatus>.map(
@@ -66,3 +67,4 @@ inline fun <FetchStrategy> Flow<NetworkStatus>.flatMap(
         NetworkStatus.Available -> onAvailable()
     }
 }
+

@@ -1,6 +1,5 @@
 package com.example.api.repository
 
-import com.example.api.models.Tree
 import com.example.api.models.TreeEntity
 
 interface LocalRepository {

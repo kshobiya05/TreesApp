@@ -12,19 +12,19 @@ data class Tree (
     val hauteurenm: Int
 ) : Parcelable
 
-    fun Tree.toTreeEntity() : TreeEntity = TreeEntity (
-        id = id,
-        adresse = adresse,
-        circonferenceencm = circonferenceencm,
-        hauteurenm = hauteurenm,
-        espece = espece,
-        timestamp = System.currentTimeMillis()
-    )
+fun Tree.toTreeEntity() : TreeEntity = TreeEntity (
+    id = id,
+    adresse = adresse,
+    circonferenceencm = circonferenceencm,
+    hauteurenm = hauteurenm,
+    espece = espece,
+    timestamp = System.currentTimeMillis()
+)
 
-    fun TreeEntity.toTree() : Tree = Tree (
-        id = id,
-        adresse = adresse,
-        circonferenceencm = circonferenceencm,
-        hauteurenm = hauteurenm,
-        espece = espece
-    )
+fun TreeEntity.toTree() : Tree = Tree (
+    id = id,
+    adresse = adresse,
+    circonferenceencm = circonferenceencm,
+    hauteurenm = hauteurenm,
+    espece = espece
+)

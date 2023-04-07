@@ -5,22 +5,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.api.Resource
+import com.example.api.injection.Dependencies
+import com.example.api.injection.DependencyInjection
 import com.example.api.models.FetchStrategy
 import com.example.api.models.Tree
-import com.example.domain.usecase.GetTreeUseCaseImpl
+import com.example.api.usecase.GetTreeUseCase
 import com.example.trees.connection.NetworkStatusTracker
 import com.example.trees.util.*
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class TreesListViewModel @Inject constructor (
-    private val getTreesUseCase : GetTreeUseCaseImpl,
-    private val connectivityManager : NetworkStatusTracker
-) : ViewModel() {
+class TreesListViewModel () : ViewModel() {
+
+    private val connectivityManager = DependencyInjection.get<NetworkStatusTracker>(Dependencies.Network.toString())
+    private val getTreesUseCase = DependencyInjection.get<GetTreeUseCase>(Dependencies.UseCase.toString())
 
     var dataState : MutableStateFlow<DataState<List<Tree>>> = MutableStateFlow(DataStateIdle(emptyList()))
     private var index : Int = 0
