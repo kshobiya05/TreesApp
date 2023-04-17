@@ -6,8 +6,6 @@ interface LocalRepository {
 
     suspend fun getLocalTrees(start :Int, rows : Int) : List<TreeEntity>
 
-    suspend fun deleteTree(id: String)
-
     suspend fun insertAll(list :List<TreeEntity>)
 
     suspend fun reload(tree: TreeEntity)
