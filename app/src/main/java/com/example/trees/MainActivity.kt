@@ -1,5 +1,6 @@
 package com.example.trees
 
+import android.location.Geocoder
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,6 +15,7 @@ import com.example.domain.usecase.GetTreeUseCaseImpl
 import com.example.trees.di.ConnectionManagerModule
 import com.example.trees.presentation.NavGraphs
 import com.example.trees.presentation.theme.TreeAppTheme
+import com.example.trees.presentation.treesList.MapViewModel
 import com.example.trees.presentation.treesList.TreesListViewModel
 import com.ramcosta.composedestinations.DestinationsNavHost
 
@@ -36,11 +38,11 @@ class MainActivity : ComponentActivity() {
         DependencyInjection.register(Dependencies.Api.toString(),ApiModule.provideTreeApi())
         DependencyInjection.register(Dependencies.Network.toString(),ConnectionManagerModule.provideConnectionManager(applicationContext))
         DependencyInjection.register(Dependencies.Remote.toString(), RemoteRepositoryImpl())
-        //DependencyInjection.register(Dependencies.Remote.toString(), MockRepositoryImpl())
         DependencyInjection.register(Dependencies.Local.toString(), LocalRepositoryImpl())
         DependencyInjection.register(Dependencies.UseCase.toString(), GetTreeUseCaseImpl())
-        DependencyInjection.register(Dependencies.viewModel.toString(),TreesListViewModel())
-
-
+        DependencyInjection.register(Dependencies.ViewModel.toString(),TreesListViewModel())
+        DependencyInjection.register(Dependencies.MapviewModel.toString(),MapViewModel())
+        DependencyInjection.register(Dependencies.Geocoder.toString(), Geocoder(applicationContext))
+        DependencyInjection.register(Dependencies.Context.toString(),applicationContext)
     }
 }

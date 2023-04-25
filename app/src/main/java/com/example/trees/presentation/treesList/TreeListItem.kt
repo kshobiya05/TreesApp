@@ -2,9 +2,7 @@ package com.example.trees.presentation.treesList
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,22 +29,20 @@ fun TreeListItem(
         ) {
             Button(
                 onClick = {
-                    navigator.navigate(TreeScreenDestination(tree))
+                    navigator.navigate(TreeScreenDestination(tree = tree))
                 }, modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .fillMaxWidth()
                     .background(MaterialTheme.colors.primary)
             ) {
                 Text(
-                    text = "${tree.espece}",
+                    text = tree.espece,
                     color = Color.White,
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.caption,
                     modifier = Modifier.align(Alignment.CenterVertically)
                         .fillMaxWidth()
-
                 )
             }
         }
-
 }

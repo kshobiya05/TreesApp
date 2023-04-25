@@ -12,6 +12,7 @@ import com.example.api.models.Tree
 import com.example.api.usecase.GetTreeUseCase
 import com.example.trees.connection.NetworkStatusTracker
 import com.example.trees.util.*
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
